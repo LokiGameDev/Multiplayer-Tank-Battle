@@ -13,6 +13,7 @@ public class CoinCollector : NetworkBehaviour
     [SerializeField] private int bountyCoinCount = 10;
     [SerializeField] private int minBountyCoinValue = 5;
     [SerializeField] private ContactFilter2D layerMask;
+
     private Collider2D[] coinBuffer = new Collider2D[1];
 
     private float coinRadius;
@@ -51,6 +52,7 @@ public class CoinCollector : NetworkBehaviour
             int value = coin.Collect();
             if(!IsServer) return;
             TotalCoins.Value+=value;
+            GetComponent<TankPlayer>().PlayCoinCollectSFX();
         }
     }
 

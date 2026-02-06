@@ -15,6 +15,7 @@ public class ProjectileLauncher : NetworkBehaviour
     [SerializeField] private Collider2D playerCollider;
     [SerializeField] private CoinCollector collector;
     [SerializeField] private Image ammoBarImage;
+    [SerializeField] private AudioClip shootClip;
 
     [Header("Settings")]
     [SerializeField] private float projectileSpeed;
@@ -118,6 +119,7 @@ public class ProjectileLauncher : NetworkBehaviour
     private void SpawnDummyProjectile(Vector3 spawnPos, Vector3 direction)
     {
         muzzleFlash.SetActive(true);
+        PlayShootSound();
         muzzleFlashTimer = muzzleFlashDuration;
         GameObject projectileInstance = Instantiate(clientProjectilePrefab, spawnPos, Quaternion.identity);
         projectileInstance.transform.up = direction;
@@ -130,6 +132,14 @@ public class ProjectileLauncher : NetworkBehaviour
         if(projectileInstance.TryGetComponent(out Rigidbody2D rb))
         {
             rb.linearVelocity = rb.transform.up * projectileSpeed;
+        }
+    }
+
+    private void PlayShootSound()
+    {
+        if (shootClip != null)
+        {
+            GetComponent<TankPlayer>().PlaySFX(shootClip);
         }
     }
 }

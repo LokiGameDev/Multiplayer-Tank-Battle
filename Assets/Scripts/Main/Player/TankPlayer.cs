@@ -9,6 +9,11 @@ public class TankPlayer : NetworkBehaviour
     [Header("References")]
     [SerializeField] private CinemachineCamera cinemachineCamera;
     [SerializeField] private SpriteRenderer playerMinimapIcon;
+    [SerializeField] private AudioSource combatAudioSource;
+    [SerializeField] private AudioSource collectAudioSource;
+    [SerializeField] private AudioSource healAudioSource;
+    [SerializeField] private AudioClip coinCollectClip;
+    [SerializeField] private AudioClip healClip;
     [Header("Settings")]
     [SerializeField] private int ownerPriority = 15;
     [field: SerializeField] public Health Health { get; private set;}
@@ -39,6 +44,30 @@ public class TankPlayer : NetworkBehaviour
         if(IsServer)
         {
             OnPlayerDespawned?.Invoke(this);
+        }
+    }
+
+    public void PlaySFX(AudioClip clip)
+    {
+        if (combatAudioSource != null && clip != null)
+        {
+            combatAudioSource.PlayOneShot(clip);
+        }
+    }
+
+    public void PlayCoinCollectSFX()
+    {
+        if (collectAudioSource != null && coinCollectClip != null)
+        {
+            collectAudioSource.PlayOneShot(coinCollectClip);
+        }
+    }
+
+    public void PlayHealSFX()
+    {
+        if (healAudioSource != null && healClip != null)
+        {
+            healAudioSource.PlayOneShot(healClip);
         }
     }
 }

@@ -27,6 +27,7 @@ public class Health : NetworkBehaviour
     public void RestoreHealth(int healValue)
     {
         ModifyHealth(healValue);
+        GetComponent<TankPlayer>().PlayHealSFX();
     }
 
     private void ModifyHealth(int value)
