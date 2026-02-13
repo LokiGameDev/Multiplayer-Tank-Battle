@@ -4,11 +4,13 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
-
     public AudioMixer audioMixer;
-
     public AudioSource musicSource;
     public AudioClip clip;
+
+
+    public float bgMusicVolume = 1f;
+    public float sfxVolume = 1f;
 
     void Awake()
     {
@@ -25,29 +27,26 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         PlayMusic();
-    }
-
-    public void SetMusicVolume(float value)
-    {
-        audioMixer.SetFloat("MusicVol", Mathf.Log10(value) * 20);
-        PlayerPrefs.SetFloat("MusicVol", value);
-    }
-
-    public void SetSFXVolume(float value)
-    {
-        audioMixer.SetFloat("SFXVol", Mathf.Log10(value) * 20);
-        PlayerPrefs.SetFloat("SFXVol", value);
-    }
-
-    public void LoadVolume()
-    {
-        SetMusicVolume(PlayerPrefs.GetFloat("MusicVol", 1f));
-        SetSFXVolume(PlayerPrefs.GetFloat("SFXVol", 1f));
+        LoadVolumeSettings();
     }
 
     public void PlayMusic()
     {
         musicSource.clip = clip;
         musicSource.Play();
+    }
+
+    public void LoadVolumeSettings()
+    {
+        bgMusicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
+        VolumeChanged(bgMusicVolume, sfxVolume);
+    }
+
+    public void VolumeChanged(float musicVolume, float sfxVolume)
+    {
+        audioMixer.SetFloat("Music", Mathf.Lerp(-80f, -20f, musicVolume));
+        audioMixer.SetFloat("Combat", Mathf.Lerp(-80f, 0, sfxVolume));
+        audioMixer.SetFloat("Collection", Mathf.Lerp(-80f, 0, sfxVolume));
     }
 }
