@@ -1,8 +1,11 @@
 # 🎮 TANK BATTLE
+<p align="center">
+<img src="Assets/Docs/TankBattle%20BG.png" width="600" />
+</p>
 
-![Cover Image](Docs/images/cover.png)
-
-*A Top Down 2D multiplayer tank battle game.*
+<p align="center">
+<i>A Top Down 2D multiplayer tank battle game.</i>
+</p>
 
 ---
 
@@ -63,16 +66,22 @@ For Mobile:
 ## 📸 Screenshots & GIFs
 
 ### Gameplay
-![Gameplay 1](Docs/images/gameplay1.png)
+<p align="center">
+  <img src="Assets/Docs/Gameplay1.jpeg" width="45%" />
+  <img src="Assets/Docs/Gameplay2.jpeg" width="45%" />
+</p>
+<p align="center">
+  <img src="Assets/Docs/Gameplay3.jpeg" width="45%" />
+  <img src="Assets/Docs/Gameplay4.jpeg" width="45%" />
+</p>
+<p align="center">
+  <img src="Assets/Docs/Gameplay5.jpeg" width="45%" />
+</p>
 
 ---
 
 ## 🎥 Gameplay Video
 
-▶️ **YouTube Trailer / Gameplay:**  
-👉 https://youtu.be/your-video-link
+👉 Yet to be uploaded
 
 ---
-
-## 📂 Project Structure Overview
-
