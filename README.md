@@ -12,10 +12,11 @@
 ## 🕹️ About the Game
 
 **TANK BATTLE** is a **Top down, Action, Multiplayer** game developed using **Unity**.  
+
 This project was developed with the help of an Udemy Course for multiplayer game development using Unity Netcode for gameobjects.
 
 **Why this project?**
-- To practice real-world game development workflows
+- To practice real-world multiplayer game development workflows
 - To explore **Unity's Netcode**
 
 ---
@@ -46,20 +47,31 @@ Used unity's Relay and Lobby service to make the game playable through online an
 ---
 
 ## 🎮 Controls
-
-For PC:
+<table>
+<tr>
+<td width="100%" valign="top">
+    
+#For PC:
 | Action | Input |
-|------|------|
+|:------:|:------:|
 | Move | WASD |
 | Aim | Mouse move |
 | Shoot | Left click |
 
-For Mobile:
+</td>
+<td width="10%"></td>
+<td width="100%" valign="top">
+
+#For Mobile:
 | Action | Input |
-|------|------|
+|:------:|:------:|
 | Move | Left Stick |
 | Aim | Right Stick |
 | Shoot | Right Stick leave |
+
+</td>
+</tr>
+</table>
 
 ---
 
