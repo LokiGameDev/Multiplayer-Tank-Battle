@@ -7,6 +7,7 @@ public class NameSelector : MonoBehaviour
 {
     [SerializeField] private TMP_InputField nameField;
     [SerializeField] private Button connectButton;
+    [SerializeField] private NotificationShower notificationShower;
     [SerializeField] private int minNameLength = 1;
     [SerializeField] private int maxNameLength = 12;
     public const string PlayerNameKey = "PlayerName";
@@ -24,11 +25,19 @@ public class NameSelector : MonoBehaviour
 
     public void HandleNameChange()
     {
-        connectButton.interactable = nameField.text.Length >= minNameLength && nameField.text.Length <= maxNameLength;
+        if(nameField.text.Length <= minNameLength || nameField.text.Length >= maxNameLength)
+        {
+            notificationShower.ShowNotification($"Name must be between {minNameLength} and {maxNameLength} characters.");
+        }
     }
 
     public void Connect()
     {
+        if(nameField.text.Length <= minNameLength || nameField.text.Length >= maxNameLength)
+        {
+            notificationShower.ShowNotification($"Name must be between {minNameLength} and {maxNameLength} characters.");
+            return;
+        }
         PlayerPrefs.SetString(PlayerNameKey, nameField.text);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

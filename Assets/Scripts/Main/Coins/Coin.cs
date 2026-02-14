@@ -15,4 +15,8 @@ public abstract class Coin : NetworkBehaviour
     {
         spriteRenderer.enabled = status;
     }
+    protected void BountyShow(bool status)
+    {
+        Destroy(gameObject, 0.1f);
+    }
 }

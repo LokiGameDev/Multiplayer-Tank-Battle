@@ -29,7 +29,12 @@ public class ProjectileLauncher : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        if(!IsOwner) return;
+        if(!IsOwner)
+        {
+            ammoBarImage.gameObject.SetActive(false);
+            return;
+        }
+
         inputReader.PrimaryFireEvent += HandlePrimaryFire;
         inputReader.MobileFireEvent += HandleMobileFire;
     }

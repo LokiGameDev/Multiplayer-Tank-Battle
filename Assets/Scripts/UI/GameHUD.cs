@@ -7,6 +7,7 @@ public class GameHUD : NetworkBehaviour
     [Header("References")]
     [SerializeField] private Texture2D cursorTexture;
     [SerializeField] private GameObject instructionsPanel;
+    [SerializeField] private GameObject mobileControlsPanel;
 
     public void LeaveGame()
     {
@@ -20,6 +21,7 @@ public class GameHUD : NetworkBehaviour
 
     private void OnEnable()
     {
+        mobileControlsPanel.SetActive(Application.isMobilePlatform);
         Cursor.SetCursor(cursorTexture, new Vector2(0,0), CursorMode.Auto);
         StartCoroutine(TurnOffInstructionsAfterDelay());
     }

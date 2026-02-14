@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 1878191572
+  GlobalObjectIdHash: 1065697134
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -163,7 +163,9 @@ MonoBehaviour:
   playerMinimapIcon: {fileID: 9078805000632346748}
   combatAudioSource: {fileID: 1101438628866187665}
   collectAudioSource: {fileID: -7434302742954576558}
+  healAudioSource: {fileID: 0}
   coinCollectClip: {fileID: 8300000, guid: 7060c462c834d394a9971d51f3a4632f, type: 3}
+  healClip: {fileID: 0}
   ownerPriority: 15
   <Health>k__BackingField: {fileID: -6181271250532135734}
   <Wallet>k__BackingField: {fileID: -1464335092339628359}
@@ -281,7 +283,6 @@ MonoBehaviour:
   CurrentHealth:
     m_InternalValue: 0
   deathEffect: {fileID: 8874307865898775462, guid: 4c31246fedfa04f4d9411ca33029be8a, type: 3}
-  healClip: {fileID: 8300000, guid: c48a972d3d024c2408a3331750786a29, type: 3}
 --- !u!114 &-1464335092339628359
 MonoBehaviour:
   m_ObjectHideFlags: 0
